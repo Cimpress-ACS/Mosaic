@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>User Interface Diagram</title>
+<link href="../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {	
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+
+function nameClassifier(name, separator)
+{
+  var str = name;
+  var classifierName;
+  var node = document.getElementById('name_classifier');
+  if(node != null)
+  {
+    classifierName = node.innerHTML;
+  }
+  if(classifierName != "")
+  {
+   str += separator + classifierName;
+  }
+  
+  return str;
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="PageBody">
+	
+<img src="EA14.png" usemap="#EA14" border="0" />
+
+<MAP NAME="EA14">
+<area shape="rect" coords="87,575,202,645" href="EA183.htm" target="_self">
+<area shape="rect" coords="39,462,129,532" href="EA182.htm" target="_self">
+<area shape="rect" coords="355,1053,499,1123" href="EA54.htm" target="_self">
+<area shape="rect" coords="1058,1067,1158,1117" href="EA251.htm" target="_self">
+<area shape="rect" coords="1005,916,1121,1007" href="EA86.htm" target="_self">
+<area shape="rect" coords="936,1066,1044,1115" href="EA124.htm" target="_self">
+<area shape="rect" coords="1176,959,1317,1096" href="EA31.htm" target="_self">
+<area shape="rect" coords="1177,777,1286,923" href="EA85.htm" target="_self">
+<area shape="rect" coords="914,751,1343,1126" href="EA166.htm" target="_self">
+<area shape="rect" coords="995,638,1132,699" href="EA89.htm" target="_self">
+<area shape="rect" coords="503,627,661,695" href="EA88.htm" target="_self">
+<area shape="rect" coords="10,380,217,707" href="EA179.htm" target="_self">
+<area shape="rect" coords="514,892,597,936" href="EA17.htm" target="_self">
+<area shape="rect" coords="826,174,916,217" href="EA18.htm" target="_self">
+<area shape="rect" coords="1409,986,1582,1100" href="EA120.htm" target="_self">
+<area shape="rect" coords="393,152,483,192" href="EA108.htm" target="_self">
+<area shape="rect" coords="421,222,579,292" href="EA227.htm" target="_self">
+<area shape="rect" coords="558,142,716,230" href="EA72.htm" target="_self">
+<area shape="rect" coords="586,48,688,118" href="EA71.htm" target="_self">
+<area shape="rect" coords="89,116,274,230" href="EA132.htm" target="_self">
+<area shape="rect" coords="777,548,954,618" href="EA177.htm" target="_self">
+<area shape="rect" coords="791,441,936,511" href="EA176.htm" target="_self">
+<area shape="rect" coords="1027,534,1157,604" href="EA150.htm" target="_self">
+<area shape="rect" coords="1016,433,1128,503" href="EA149.htm" target="_self">
+<area shape="rect" coords="715,381,1174,711" href="EA144.htm" target="_self">
+<area shape="rect" coords="1100,12,1218,100" href="EA40.htm" target="_self">
+<area shape="rect" coords="1102,221,1221,291" href="EA157.htm" target="_self">
+<area shape="rect" coords="919,10,1040,100" href="EA39.htm" target="_self">
+<area shape="rect" coords="936,212,1026,302" href="EA92.htm" target="_self">
+<area shape="rect" coords="624,800,747,890" href="EA77.htm" target="_self">
+<area shape="rect" coords="778,136,1255,360" href="EA181.htm" target="_self">
+<area shape="rect" coords="455,47,545,117" href="EA226.htm" target="_self">
+<area shape="rect" coords="271,531,425,601" href="EA143.htm" target="_self">
+<area shape="rect" coords="286,421,410,491" href="EA142.htm" target="_self">
+<area shape="rect" coords="356,927,500,1017" href="EA76.htm" target="_self">
+<area shape="rect" coords="714,937,804,1007" href="EA129.htm" target="_self">
+<area shape="rect" coords="778,816,868,886" href="EA128.htm" target="_self">
+<area shape="rect" coords="321,758,896,1129" href="EA165.htm" target="_self">
+<area shape="rect" coords="25,762,274,1127" href="EA168.htm" target="_self">
+<area shape="rect" coords="26,5,741,330" href="EA127.htm" target="_self">
+<area shape="rect" coords="1412,463,1600,791" href="EA103.htm" target="_self">
+<area shape="rect" coords="1379,440,1558,769" href="EA158.htm" target="_self">
+<area shape="rect" coords="1338,414,1513,745" href="EA156.htm" target="_self">
+<area shape="rect" coords="1272,395,1485,726" href="EA161.htm" target="_self">
+<area shape="rect" coords="510,527,652,597" href="EA140.htm" target="_self">
+<area shape="rect" coords="467,420,567,490" href="EA139.htm" target="_self">
+<area shape="rect" coords="242,379,667,707" href="EA137.htm" target="_self">
+<area shape="rect" coords="1238,376,1455,710" href="EA155.htm" target="_self">
+</MAP>
+
+	<div class="ObjectTitle">User Interface Diagram : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">9/4/2012 2:02:08 PM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">2/7/2017 5:57:23 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><img src="../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">renglputzeder</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><img src="../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{8BFC1B2E-E678-4ee3-85B5-A87DD34FDA73}</td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">A module base approach needs a modularization of the user interface as well. The architecture goes not only horizontal but also vertical. Each module in the domain space (can have) has it&#39;s adjacent UI module.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Caliburn.Micro is used for UI Composition, automatic View-&gt;ViewModel binding and bootstrapping.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The most third pary dependencies are hidden in this diagram for simplification reasons.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The ShellView defines regions which serves as hook up points for sub views. The ShellView and ShellViewModel must not know the specific views. The two important hooks are:&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;IModuleScreen&lt;/li&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;li&gt;IConfigurationScreen&lt;/li&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;/ul&gt;&lt;br /&gt;&lt;/p&gt;</div>
+
+</div>
+ 
+</body>
+</html>

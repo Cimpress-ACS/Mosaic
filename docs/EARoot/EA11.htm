@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PlatformModuleStates</title>
+<link href="../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {	
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+
+function nameClassifier(name, separator)
+{
+  var str = name;
+  var classifierName;
+  var node = document.getElementById('name_classifier');
+  if(node != null)
+  {
+    classifierName = node.innerHTML;
+  }
+  if(classifierName != "")
+  {
+   str += separator + classifierName;
+  }
+  
+  return str;
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="PageBody">
+	
+<img src="EA12.png" usemap="#EA12" border="0" />
+
+<MAP NAME="EA12">
+<area shape="rect" coords="601,647,721,730" href="EA234.htm" target="_self">
+<area shape="rect" coords="601,569,721,595" href="EA235.htm" target="_self">
+<area shape="rect" coords="255,207,522,316" href="EA101.htm" target="_self">
+<area shape="rect" coords="382,675,502,701" href="EA173.htm" target="_self">
+<area shape="rect" coords="294,770,414,796" href="EA223.htm" target="_self">
+<area shape="rect" coords="258,10,522,158" href="EA246.htm" target="_self">
+<area shape="rect" coords="10,31,187,122" href="EA244.htm" target="_self">
+<area shape="rect" coords="305,355,473,490" href="EA100.htm" target="_self">
+<area shape="rect" coords="126,833,246,893" href="EA60.htm" target="_self">
+<area shape="rect" coords="63,855,83,875" href="EA228.htm" target="_self">
+<area shape="rect" coords="87,523,207,671" href="EA55.htm" target="_self">
+<area shape="rect" coords="341,829,461,897" href="EA221.htm" target="_self">
+<area shape="rect" coords="329,531,449,640" href="EA171.htm" target="_self">
+</MAP>
+
+	<div class="ObjectTitle">PlatformModuleStates : StateMachine diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">9/11/2012 11:26:01 AM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">2/9/2017 9:36:36 AM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><img src="../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">renglputzeder</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><img src="../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{C3CE6155-F781-4947-8031-C29329C17EBA}</td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">Common module states which are generic for all .NET PlatformModules.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The state of Saber-Module is decoupled from any PLC-Module state because some Saber-Module might not have an underlying PLC-Module at all. A Saber-Module could consist a PLC-Module but also other components with it&#39;s own state.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;This state machine should be generic. If more state are needed for a specific module, the substate can be used.&lt;br /&gt;&lt;/p&gt;</div>
+
+</div>
+ 
+</body>
+</html>

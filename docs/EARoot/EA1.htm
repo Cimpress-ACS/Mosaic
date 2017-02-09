@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Application Overview</title>
+<link href="../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {	
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+
+function nameClassifier(name, separator)
+{
+  var str = name;
+  var classifierName;
+  var node = document.getElementById('name_classifier');
+  if(node != null)
+  {
+    classifierName = node.innerHTML;
+  }
+  if(classifierName != "")
+  {
+   str += separator + classifierName;
+  }
+  
+  return str;
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="PageBody">
+	
+<img src="EA2.png" usemap="#EA2" border="0" />
+
+<MAP NAME="EA2">
+<area shape="rect" coords="272,763,382,823" href="EA148.htm" target="_self">
+<area shape="rect" coords="216,171,326,231" href="EA146.htm" target="_self">
+<area shape="rect" coords="218,434,328,500" href="EA147.htm" target="_self">
+<area shape="rect" coords="260,700,426,854" href="EA151.htm" target="_self">
+<area shape="rect" coords="557,713,678,763" href="EA232.htm" target="_self">
+<area shape="rect" coords="423,554,565,614" href="EA104.htm" target="_self">
+<area shape="rect" coords="427,10,593,60" href="EA57.htm" target="_self">
+<area shape="rect" coords="171,12,309,62" href="EA56.htm" target="_self">
+<area shape="rect" coords="49,756,165,816" href="EA134.htm" target="_self">
+<area shape="rect" coords="407,171,517,231" href="EA154.htm" target="_self">
+<area shape="rect" coords="406,405,516,465" href="EA153.htm" target="_self">
+<area shape="rect" coords="598,171,708,231" href="EA159.htm" target="_self">
+<area shape="rect" coords="19,171,135,231" href="EA138.htm" target="_self">
+<area shape="rect" coords="36,700,221,852" href="EA141.htm" target="_self">
+<area shape="rect" coords="11,108,748,271" href="EA214.htm" target="_self">
+<area shape="rect" coords="600,435,710,495" href="EA160.htm" target="_self">
+<area shape="rect" coords="27,380,143,440" href="EA136.htm" target="_self">
+<area shape="rect" coords="10,347,754,645" href="EA123.htm" target="_self">
+</MAP>
+
+	<div class="ObjectTitle">Application Overview : Component diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">10/9/2012 12:16:05 PM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">2/7/2017 5:25:53 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><img src="../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">renglputzeder</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><img src="../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{EC415554-991B-4b6c-839D-AE2F2BF75B4C}</td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">Shows an overview of the Deployments and the Modules within a Deployment.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Modules communicates via WCF.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The LineControlService is the main application and comes without UI. It communicates with PLC and handles the business logic.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The RemoteMaintenance application provides an UI and could be deployed locally on the machine, on a developer PC for remote debugging and a Windows Tablet. So we have here multiple instances.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The RemoteOperator application provides an UI for operators and could be deployed multiple times as well for each loading station. But only one loading station is able to do quality checks (configurable).&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;In the end we have three different installer: For LineControlService, RemoteMaintenance and RemoteOperator.&lt;br /&gt;&lt;/p&gt;</div>
+
+</div>
+ 
+</body>
+</html>

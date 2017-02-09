@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PlcCommunication (base PLC API)</title>
+<link href="../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {	
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+
+function nameClassifier(name, separator)
+{
+  var str = name;
+  var classifierName;
+  var node = document.getElementById('name_classifier');
+  if(node != null)
+  {
+    classifierName = node.innerHTML;
+  }
+  if(classifierName != "")
+  {
+   str += separator + classifierName;
+  }
+  
+  return str;
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="PageBody">
+	
+<img src="EA388.png" usemap="#EA388" border="0" />
+
+<MAP NAME="EA388">
+<area shape="rect" coords="662,480,762,550" href="EA414.htm" target="_self">
+<area shape="rect" coords="558,518,676,588" href="EA393.htm" target="_self">
+<area shape="rect" coords="486,460,602,530" href="EA396.htm" target="_self">
+<area shape="rect" coords="394,412,516,482" href="EA417.htm" target="_self">
+<area shape="rect" coords="150,674,240,744" href="EA415.htm" target="_self">
+<area shape="rect" coords="182,572,292,642" href="EA394.htm" target="_self">
+<area shape="rect" coords="206,486,348,556" href="EA395.htm" target="_self">
+<area shape="rect" coords="34,628,142,698" href="EA397.htm" target="_self">
+<area shape="rect" coords="10,544,124,614" href="EA418.htm" target="_self">
+<area shape="rect" coords="218,998,356,1068" href="EA404.htm" target="_self">
+<area shape="rect" coords="84,982,183,1052" href="EA402.htm" target="_self">
+<area shape="rect" coords="614,988,763,1058" href="EA403.htm" target="_self">
+<area shape="rect" coords="466,942,576,1012" href="EA401.htm" target="_self">
+<area shape="rect" coords="452,754,633,861" href="EA410.htm" target="_self">
+<area shape="rect" coords="60,790,267,893" href="EA411.htm" target="_self">
+<area shape="rect" coords="478,10,603,111" href="EA423.htm" target="_self">
+<area shape="rect" coords="296,14,421,154" href="EA422.htm" target="_self">
+<area shape="rect" coords="514,224,670,335" href="EA412.htm" target="_self">
+<area shape="rect" coords="46,224,245,456" href="EA413.htm" target="_self">
+</MAP>
+
+	<div class="ObjectTitle">PlcCommunication (base PLC API) : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">3/5/2014 11:45:22 AM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">4/8/2014 12:55:01 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><img src="../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">renglputzeder</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><img src="../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{C623500C-7394-4ee3-B7CB-55DCED4FA35A}</td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">The PLC communication library is designed to be independent of the underlying PLC technology. At the moment Rockwell and Beckhoff PLC&#39;s systems are supported.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;There is even a specialized implementation for simulation, to mock out the PLC completely.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The main class is the Tag which represents just a PLC variable in .NET.&lt;br /&gt;&lt;/p&gt;</div>
+
+</div>
+ 
+</body>
+</html>
