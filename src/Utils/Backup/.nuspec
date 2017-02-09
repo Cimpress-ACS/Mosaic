@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.Utils.Backup</id>
+    <version>1.0.5.1</version>
+    <authors>Cimpress</authors>
+    <description>Common Backup Utility for ACS platforms</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS Platform Common Backup</tags>
+    <dependencies>
+      <dependency id="ACS.Common.Infrastructure" version="2.0.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.Utils.Backup.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.Utils.Backup.pdb" target="lib\net45"/>
+  </files>
+</package>

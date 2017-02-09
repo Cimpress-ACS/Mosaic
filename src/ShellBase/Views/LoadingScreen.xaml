@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="VP.FF.PT.Common.ShellBase.Views.LoadingScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:VP.FF.PT.Common.ShellBase.ViewModels"
+             xmlns:controls="clr-namespace:VP.FF.PT.Common.WpfInfrastructure.Controls;assembly=VP.FF.PT.Common.WpfInfrastructure"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             cal:Bind.AtDesignTime="True"
+             d:DataContext="{d:DesignInstance Type=viewModels:LoadingScreenViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="500" d:DesignWidth="1024">
+
+    <Grid>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Style="{StaticResource TextBlock.Loading}" Text="Please wait while Mosaic starts up." />
+                <StackPanel HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Visibility="{Binding ModuleInInitialization,
+                                                     Converter={StaticResource NotNullToVisibilityConverter}}">
+                    <TextBlock Text="Initializing module " />
+                    <TextBlock Text="{Binding ModuleInInitialization}" />
+                </StackPanel>
+            </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,72 @@
+﻿{
+  "ActiveAlarm": "Root Alarm",
+  "ActualValues": [
+    {
+      "Comment": "Ruuuun!",
+      "Key": "Velocity",
+      "Name": "Velocity",
+      "Type": "System.Byte",
+      "Unit": "m/s",
+      "Value": "",
+      "EnumerationMembers": [],
+      "Children": []
+    }
+  ],
+  "Children": [
+    {
+      "ActiveAlarm": "",
+      "ActualValues": [],
+      "Children": [],
+      "Commands": [],
+      "Configurations": [],
+      "ControllerState": 0,
+      "CurrentState": "Ready",
+      "CurrentSubState": "Sub-Ready",
+      "EnableForcing": false,
+      "Id": 2,
+      "Inputs": [],
+      "IsEnabled": false,
+      "IsSimulation": false,
+      "Mode": 12,
+      "Name": "Child",
+      "FullName": "Child",
+      "PlcControllerPath": null,
+      "Outputs": [],
+      "Parameters": [
+        {
+          "Comment": "Whatever",
+          "Key": "AnyTag",
+          "Name": "AnyTag",
+          "Type": "System.Int16",
+          "Unit": "...",
+          "Value": "13",
+          "EnumerationMembers": [],
+          "Children": []
+        }
+      ],
+      "Type": "ChildType"
+    }
+  ],
+  "Commands": [
+    {
+      "Name": "Start",
+      "OptionalText": "Starts the system"
+    }
+  ],
+  "Configurations": [],
+  "ControllerState": 0,
+  "CurrentState": "Running",
+  "CurrentSubState": "Sub-Running",
+  "EnableForcing": true,
+  "Id": 1,
+  "Inputs": [],
+  "IsEnabled": true,
+  "IsSimulation": true,
+  "Mode": 10,
+  "Name": "Root",
+  "FullName": "Root",
+  "PlcControllerPath": null,
+  "Outputs": [],
+  "Parameters": [],
+  "Type": "RootController"
+}

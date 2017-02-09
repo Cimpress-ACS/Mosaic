@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.Utils.GitFileStore</id>
+    <version>1.0.4.1</version>
+    <authors>Cimpress</authors>
+    <description>FileStore implementation using Git as backend</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS Platform Common Git FileStore</tags>
+    <dependencies>
+      <dependency id="ACS.Common.Infrastructure" version="2.0.1.0" />
+      <dependency id="ACS.Common.Utils.Backup" version="1.0.3.0" />
+      <dependency id="ACS.Common.Utils.Security" version="2.0.2.0" />
+      <dependency id="LibGit2Sharp" version="0.21.0.176" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.Utils.GitFileStore.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.Utils.GitFileStore.pdb" target="lib\net45"/>
+  </files>
+</package>

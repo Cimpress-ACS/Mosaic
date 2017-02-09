@@ -1,0 +1,183 @@
+﻿<Window x:Class="VP.FF.PT.Common.ShellBase.Views.ShellBaseView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:commonViewModels="clr-namespace:VP.FF.PT.Common.WpfInfrastructure.Screens.ViewModels;assembly=VP.FF.PT.Common.WpfInfrastructure"
+        xmlns:controls="clr-namespace:VP.FF.PT.Common.WpfInfrastructure.Controls;assembly=VP.FF.PT.Common.WpfInfrastructure"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:VP.FF.PT.Common.ShellBase.ViewModels"
+        xmlns:localViews="clr-namespace:VP.FF.PT.Common.ShellBase.Views"
+        xmlns:views="clr-namespace:VP.FF.PT.Common.WpfInfrastructure.Screens.Views;assembly=VP.FF.PT.Common.WpfInfrastructure"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:ckstates="clr-namespace:Centigrade.Kit.StateMachine;assembly=Centigrade.Kit.StateMachine"
+        Title="{Binding Title}"
+        Width="1500"
+        Height="1100"
+        WindowState="Maximized"
+        cal:Bind.AtDesignTime="True"
+        d:DataContext="{d:DesignInstance Type=viewModels:ShellBaseViewModel,
+                                         IsDesignTimeCreatable=True}"
+        mc:Ignorable="d">
+    <Window.InputBindings>
+        <KeyBinding 
+            Command="{Binding AdminCommand, Mode=OneWay}" 
+            Key="OemTilde" cal:Bind.AtDesignTime="True"/>
+    </Window.InputBindings>
+
+    <Grid Background="{DynamicResource Application.Background.OuterBrush}">
+        <controls:DelayedLoadedContentControl States="{Binding States}" Template="{StaticResource DelayedLoaded}">
+
+            <controls:DelayedLoadedContentControl.LoadingScreen>
+                <localViews:LoadingScreen DataContext="{Binding LoadingScreenViewModel}" cal:Bind.AtDesignTime="True"/>
+            </controls:DelayedLoadedContentControl.LoadingScreen>
+
+            <controls:DelayedLoadedContentControl.ErrorActionSection>
+                <Grid>
+                    <Button HorizontalAlignment="Center" cal:Message.Attach="TryInitializeModules">Try again</Button>
+                </Grid>
+            </controls:DelayedLoadedContentControl.ErrorActionSection>
+
+            <Grid>
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="VisualStateGroup">
+                        <VisualStateGroup.Transitions>
+                            <VisualTransition GeneratedDuration="0" />
+                        </VisualStateGroup.Transitions>
+                        <VisualState x:Name="LoginState">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="cShellView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="loginView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="loginView" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="cShellView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="LogoutState">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="cShellView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="logoutView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="logoutView" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="ShellState">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="cShellView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="cShellView" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="loginView" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <ckstates:StateMapper x:Name="cStateMapper"
+                                     StateMachine="{Binding StateMachine}"
+                                     Visibility="Collapsed">
+                    <ckstates:ModelStateToVisualStateMapping x:Name="LoginStateMapping"
+                                                             ModelState="{Binding LoginViewModelState,                                                 
+                                                                            Mode=OneWay}"
+                                                     VisualStateName="LoginState" />
+                    <ckstates:ModelStateToVisualStateMapping x:Name="ShellStateMapping"
+                                                     ModelState="{Binding ShellViewModelState,
+                                                                          Mode=OneWay}"
+                                                     VisualStateName="ShellState" />
+                    <ckstates:ModelStateToVisualStateMapping x:Name="LogoutStateMapping"
+                                                     ModelState="{Binding LogoutViewModelState,
+                                                                          Mode=OneWay}"
+                                                     VisualStateName="LogoutState" />
+                </ckstates:StateMapper>
+
+                <Grid Background="{DynamicResource Application.Background.InnerBrush}" FocusManager.FocusedElement="{Binding ElementName=AdminConsoleView}">
+
+                    <!--  ShellView  -->
+                    <Grid x:Name="cShellView">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.LayoutTransform>
+                            <ScaleTransform ScaleX="{Binding ScalingFactor, Mode=OneWay}" ScaleY="{Binding ScalingFactor, Mode=OneWay}" />
+                        </Grid.LayoutTransform>
+
+                        <localViews:HeadBarView Grid.Row="0"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    DataContext="{Binding HeadBarViewModel}" 
+                                    cal:Bind.AtDesignTime="True" />
+
+                        <!--  Content  -->
+                        <ContentControl x:Name="ActiveItem"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="1"
+                                        Margin="0,0,3,3" />
+
+                        <Label  Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                       Visibility="{Binding AllModulesInitialized, 
+                            Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                            Loading modules, please wait ...
+                        </Label>
+
+                        <localViews:ToolBarView Grid.Row="1"
+                                                Grid.RowSpan="2"
+                                                Grid.Column="0"
+                                                />
+                    </Grid>
+
+                    <views:LoginView x:Name="loginView"
+                                     DataContext="{Binding LoginViewModel}"
+                                     Visibility="Collapsed"
+                                     cal:Bind.AtDesignTime="True" />
+                    <views:LogoutView x:Name="logoutView" Visibility="Collapsed" />
+                    <views:AdminConsoleView x:Name="AdminConsoleView" 
+                                            Focusable="True"
+                                            DataContext="{Binding AdminConsoleViewModel}"
+                                            Visibility="{Binding IsVisible,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            cal:Bind.AtDesignTime="True"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top" />
+
+                </Grid>
+                <views:MessageView x:Name="MessageView"
+                                   Grid.ColumnSpan="2"
+                                   DataContext="{Binding MessageViewModel}" />
+            </Grid>
+        </controls:DelayedLoadedContentControl>
+
+    </Grid>
+
+</Window>

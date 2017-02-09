@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.PlcCommunicationSimulator</id>
+    <version>2.0.1.1</version>
+    <authors>Cimpress</authors>
+    <description>Plc libs for platform simulation for ACS platforms</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS, Plc, Simulation, Simulator</tags>
+    <dependencies>
+      <dependency id="ACS.Common.PlcCommunication" version="2.0.1.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcCommunicationSimulator.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcCommunicationSimulator.pdb" target="lib\net45"/>
+  </files>
+</package>

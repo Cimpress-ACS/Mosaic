@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>Microsoft.Surface.Presentation.Generic</name>
+	</assembly>
+	<members>
+		<member name="N:Microsoft.Surface.Presentation.Generic">
+			<summary>Provides the default look and feel of torontoSDK controls and associated helper classes.</summary>
+		</member>
+		<member name="T:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome">
+			<summary>Creates a simple shadow for a Microsoft Surface control.</summary>
+		</member>
+		<member name="M:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.#ctor">
+			<summary>Initializes a new instance of the <see cref="T:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome"></see> class.</summary>
+		</member>
+		<member name="F:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.ColorProperty">
+			<summary>Identifies a dependency property that represents the color used to fill a shadow region.</summary>
+		</member>
+		<member name="F:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.CornerRadiusProperty">
+			<summary>Identifies a dependency property that represents the corner radius of the object that is casting a shadow.</summary>
+		</member>
+		<member name="F:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.MaximumShadowOffsetProperty">
+			<summary>Identifies a dependency property that specifies the maximum length of a calculated shadow vector.</summary>
+		</member>
+		<member name="F:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.ShadowVectorProperty">
+			<summary>Identifies a dependency property that specifies the distance and direction from a light source to an element.</summary>
+		</member>
+		<member name="P:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.Color">
+			<summary>Gets or sets the color that fills a shadow region.</summary>
+			<returns>Returns a <see cref="T:System.Windows.Media.Color"></see> object. The default color is #71000000.</returns>
+		</member>
+		<member name="P:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.CornerRadius">
+			<summary>Gets or sets the corner radius of the object that is casting a shadow.</summary>
+			<returns>Returns <see cref="T:System.Windows.CornerRadius"></see>. The default radius is (0,0,0,0).</returns>
+		</member>
+		<member name="P:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.MaximumShadowOffset">
+			<summary>Gets or sets the maximum length that is allowed for a shadow vector.</summary>
+			<returns>Returns a double value that specifies the maximum length. The default value is 0.</returns>
+		</member>
+		<member name="P:Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome.ShadowVector">
+			<summary>Gets or sets the shadow vector.</summary>
+			<returns>Returns <see cref="T:System.Windows.Vector"></see>. The default value is (0,0).</returns>
+		</member>
+	</members>
+</doc>

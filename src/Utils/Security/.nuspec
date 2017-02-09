@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.Utils.Security</id>
+    <version>2.0.3.1</version>
+    <authors>Cimpress</authors>
+    <description>Common Security Utility for ACS platforms</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS Platform Common Security</tags>
+    <dependencies>
+      <dependency id="ACS.Common.Infrastructure" version="2.0.12.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.Utils.Security.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.Utils.Security.pdb" target="lib\net45"/>
+  </files>
+</package>

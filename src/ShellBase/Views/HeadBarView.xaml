@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="VP.FF.PT.Common.ShellBase.Views.HeadBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:VP.FF.PT.Common.WpfInfrastructure.Screens.Views;assembly=VP.FF.PT.Common.WpfInfrastructure"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:localViewModels="clr-namespace:VP.FF.PT.Common.ShellBase.ViewModels"
+             xmlns:viewModels="clr-namespace:VP.FF.PT.Common.WpfInfrastructure.Screens.ViewModels;assembly=VP.FF.PT.Common.WpfInfrastructure"
+             mc:Ignorable="d" 
+             cal:Bind.AtDesignTime="True"
+             d:DataContext="{d:DesignInstance Type=localViewModels:HeadBarViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300" d:DesignWidth="1500">
+    <Grid>
+        <!--  Titlebar  -->
+        <Border 
+            Margin="0,0,0,3"
+            Background="{StaticResource Brush.Navigation.Background}">
+            <DockPanel>
+                <views:BreadcrumbBarView DataContext="{Binding BreadcrumbBarViewModel}"
+                                                         DockPanel.Dock="Left"
+                                                         d:DataContext="{d:DesignInstance Type=viewModels:BreadcrumbBarViewModel,
+                                                                                          IsDesignTimeCreatable=True}" />
+                <Grid HorizontalAlignment="Right"
+                              VerticalAlignment="Center"
+                              DockPanel.Dock="Right">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                                               Margin="0, 0, 10, 0"
+                                               HorizontalAlignment="Right"
+                                               FontSize="{StaticResource FontSize.Titlebar.Date}"
+                                               Foreground="{StaticResource Brush.Titlebar.Foreground.Date}"
+                                               Text="{Binding Path=Date,
+                                                              StringFormat={}{0:yyyy-MM-dd HH:mm}}" />
+                    <WrapPanel Grid.Row="1" 
+                               Margin ="0,0,10,0"
+                               HorizontalAlignment="Right">
+                        <TextBlock 
+                            FontSize="{StaticResource FontSize.Titlebar.Username}"
+                            Foreground="{StaticResource Brush.Navigation.Foreground}"
+                            Text="{Binding UserName,Converter={StaticResource ToUpperStringConverter}}" />
+                        <TextBlock 
+                            FontSize="{StaticResource FontSize.Titlebar.Username}"
+                            Foreground="{StaticResource Brush.Navigation.Foreground}"
+                            Text="/"/>
+                        <TextBlock 
+                            FontSize ="{StaticResource FontSize.Titlebar.Role}"
+                            Foreground="{StaticResource Brush.Navigation.Foreground}"
+                            Text="{Binding Role}"/>
+                    </WrapPanel>
+
+                    <WrapPanel Grid.Row="2" 
+                               Margin ="0,0,10,0"
+                               HorizontalAlignment="Right">
+                        <TextBlock 
+                            FontSize="{StaticResource FontSize.Titlebar.Version}"
+                            Foreground="{StaticResource Brush.BreadcrumbBar.Version}"
+                            DataContext="{Binding HomeScreenViewModel}"
+                            Text="PLC: " />
+                        <TextBlock 
+                            FontSize="{StaticResource FontSize.Titlebar.Version}"
+                            Foreground="{StaticResource Brush.BreadcrumbBar.Version}"
+                            DataContext="{Binding HomeScreenViewModel}"
+                            Text="{Binding PlcVersion}" />
+                        <TextBlock 
+                            FontSize="{StaticResource FontSize.Titlebar.Version}"
+                            Foreground="{StaticResource Brush.BreadcrumbBar.Version}"
+                            Text=" / Mosaic: "/>
+                        <TextBlock 
+                            FontSize ="{StaticResource FontSize.Titlebar.Version}"
+                            Foreground="{StaticResource Brush.BreadcrumbBar.Version}"
+                            DataContext="{Binding HomeScreenViewModel}"
+                            Text="{Binding LineControlVersion}"/>
+                        <TextBlock 
+                            FontSize="{StaticResource FontSize.Titlebar.Version}"
+                            Foreground="{StaticResource Brush.BreadcrumbBar.Version}"
+                            Text=" / UI: "/>
+                        <TextBlock 
+                            FontSize ="{StaticResource FontSize.Titlebar.Version}"
+                            Foreground="{StaticResource Brush.BreadcrumbBar.Version}"
+                            DataContext="{Binding HomeScreenViewModel}"
+                            Text="{Binding MaintenanceUIVersion}"/>
+                    </WrapPanel>
+                </Grid>
+            </DockPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

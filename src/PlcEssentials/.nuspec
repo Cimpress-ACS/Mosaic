@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.PlcEssentials</id>
+    <version>2.0.6.2</version>
+    <authors>Cimpress</authors>
+    <description>PlcEssentials package for ACS platforms</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS, Plc</tags>
+    <dependencies>
+      <dependency id="ACS.Common.PlcCommunication" version="2.0.1.1" />
+      <dependency id="ACS.Common.Infrastructure" version="2.0.12.0" />
+      <dependency id="ACS.Common.PlatformEssentials" version="2.0.33.6" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcEssentials.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcEssentials.pdb" target="lib\net45"/>
+    <file src="bin\$configuration$\TwinCat.Ads.dll" target="lib\net45"/>
+  </files>
+</package>

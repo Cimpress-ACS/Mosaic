@@ -1,0 +1,31 @@
+﻿{
+  "Key": "LAB_1",
+  "Value": [
+    {
+      "Id": 15,
+      "Type": 2,
+      "Message": "Label Module crashed",
+      "Timestamp": "2014-05-20T00:00:00",
+      "Source": "LAB_1"
+    }
+  ]
+}
+{
+  "Key": "LOA_1",
+  "Value": [
+    {
+      "Id": 3,
+      "Type": 1,
+      "Message": "Alert Alert",
+      "Timestamp": "2014-05-09T00:00:00",
+      "Source": "LOA_1"
+    },
+    {
+      "Id": 23,
+      "Type": 1,
+      "Message": "Alert Alert",
+      "Timestamp": "2014-05-09T00:00:00",
+      "Source": "LOA_1"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TwinCAT PLC Control" productVersion="3.5.1.0" creationDateTime="2013-03-04T12:57:29.363091" />
+  <contentHeader name="FolderModule" modificationDateTime="2013-03-04T12:57:29.363091">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="ForcingLayer" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="EnableForcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="In_EmergencyStop_Mapping" address="%I*">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> In_EmergencyStop</xhtml>
+              </documentation>
+            </variable>
+            <variable name="In_EmergencyStop_EnableForcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="In_EmergencyStop_Forcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="In_MotorFailure_Mapping" address="%I*">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> In_MotorFailure</xhtml>
+              </documentation>
+            </variable>
+            <variable name="In_MotorFailure_EnableForcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="In_MotorFailure_Forcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="Out_MotorTls_Mapping" address="%Q*">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Out_MotorTls</xhtml>
+              </documentation>
+            </variable>
+            <variable name="Out_MotorTls_EnableForcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="Out_MotorTls_Forcing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </localVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> Automatic generated code. Do not change. Use Code generator instead.</xhtml>
+          </documentation>
+        </interface>
+        <actions>
+          <action name="ForceInputs">
+            <body>
+              <ST>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">// Automatic generated code. Do not change. Use Code generator instead.
+
+IF EnableForcing THEN
+	
+	// In_EmergencyStop
+	IF In_EmergencyStop_EnableForcing THEN
+		In_EmergencyStop := In_EmergencyStop_ForceValue;
+	ELSE
+		In_EmergencyStop := In_EmergencyStop_Mapping;
+	END_IF
+
+	// In_MotorFailure
+	IF In_MotorFailure_EnableForcing THEN
+		In_MotorFailure := In_MotorFailure_ForceValue;
+	ELSE
+		In_MotorFailure := In_MotorFailure_Mapping;
+	END_IF
+	
+ELSE
+	
+	In_EmergencyStop := In_EmergencyStop_Mapping;
+	In_MotorFailure := In_MotorFailure_Mapping;
+	
+END_IF</xhtml>
+              </ST>
+            </body>
+            <addData />
+          </action>
+          <action name="ForceOutputs">
+            <body>
+              <ST>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">// Automatic generated code. Do not change. Use Code generator instead.
+
+IF EnableForcing THEN
+	
+	// Out_MotorTls
+	IF Out_MotorTls_EnableForcing THEN
+		Out_MotorTls := Out_MotorTls_ForceValue;
+	ELSE
+		Out_MotorTls := Out_MotorTls_Mapping;
+	END_IF
+
+ELSE
+	
+	Out_MotorTls := Out_MotorTls_Mapping;
+	
+END_IF</xhtml>
+              </ST>
+            </body>
+            <addData />
+          </action>
+        </actions>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">// Automatic generated code. Do not change. Use Code generator instead.</xhtml>
+          </ST>
+        </body>
+        <addData />
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="ForcingLayer">
+          <Object Name="ForceInputs" />
+          <Object Name="ForceOutputs" />
+        </Object>
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

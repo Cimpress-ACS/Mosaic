@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.PlcCommunicationBeckhoff</id>
+    <version>2.0.1.1</version>
+    <authors>Cimpress</authors>
+    <description>Beckhoff specific plc libs for ACS platforms</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS, Plc, Beckhoff</tags>
+    <dependencies>
+      <dependency id="ACS.Common.PlcCommunication" version="2.0.1.1" />
+      <dependency id="ACS.Common.Infrastructure" version="2.0.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcCommunicationBeckhoff.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcCommunicationBeckhoff.pdb" target="lib\net45"/>
+  </files>
+</package>

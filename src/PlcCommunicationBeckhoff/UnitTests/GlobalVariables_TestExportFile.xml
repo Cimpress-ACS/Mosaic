@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyPlcName="Beckhoff Automation GmbH" productPlcName="TwinCAT PLC Control" productVersion="3.5.1.0" creationDateTime="2013-02-28T13:57:38.6064124" />
+  <contentHeader name="FolderModule" modificationDateTime="2013-02-28T13:57:38.6064124">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous />
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+      <globalVars name="GlobalVariables">
+        <variable name="In_EmergencyStop" address="%I*">
+          <type>
+            <BOOL />
+          </type>
+        </variable>
+        <variable name="In_MotorFailure" address="%I*">
+          <type>
+            <BOOL />
+          </type>
+        </variable>
+        <variable name="Out_MotorTls" address="%Q*">
+          <type>
+            <BOOL />
+          </type>
+        </variable>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <LinkAlways>true</LinkAlways>
+            </BuildProperties>
+          </data>
+        </addData>
+      </globalVars>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="GlobalVariables" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

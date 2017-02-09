@@ -1,0 +1,12 @@
+The following is a list of files available for redistribution under the terms
+of the Microsoft Reactive Extensions SDK license agreement:
+
+System.Reactive.Interfaces.dll
+System.Reactive.Core.dll
+System.Reactive.Linq.dll
+System.Reactive.PlatformServices.dll
+System.Reactive.Providers.dll
+System.Reactive.Runtime.Remoting.dll
+System.Reactive.Windows.Forms.dll
+System.Reactive.Windows.Threading.dll
+System.Reactive.WindowsRuntime.dll

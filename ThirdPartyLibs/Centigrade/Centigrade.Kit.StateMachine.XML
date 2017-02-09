@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Centigrade.Kit.StateMachine</name>
+    </assembly>
+    <members>
+        <member name="T:Expression.Samples.Interactivity.GoToStateBase">
+            <summary>
+            Base class for a number of GoToState triggers.
+            </summary>
+        </member>
+        <member name="F:Expression.Samples.Interactivity.GoToStateBase.UseTransitionsProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Expression.Samples.Interactivity.GoToStateBase.OnAttached">
+            <summary>
+            Hooks up necessary handlers for the state changes.
+            </summary>
+        </member>
+        <member name="M:Expression.Samples.Interactivity.GoToStateBase.OnDetaching">
+            <summary>
+            Cleans up when getting removed.
+            </summary>
+        </member>
+        <member name="M:Expression.Samples.Interactivity.GoToStateBase.GoToState(System.Int32,System.Boolean)">
+            <summary>
+            Goes to the specified state on the targetted VSM.
+            </summary>
+            <param name="targetIndex">index of the state to be activated</param>
+            <param name="useTransitions">True if transitions should be used.</param>
+        </member>
+        <member name="F:Expression.Samples.Interactivity.GoToStateBase.LoopProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Expression.Samples.Interactivity.GoToStateBase.UseTransitions">
+            <summary>
+            True if transitions should be used for the state change.
+            </summary>
+        </member>
+        <member name="P:Expression.Samples.Interactivity.GoToStateBase.StateCount">
+            <summary>
+            The total number of states in the targetted VSM.
+            </summary>
+        </member>
+        <member name="P:Expression.Samples.Interactivity.GoToStateBase.CurrentStateIndex">
+            <summary>
+            The index of the current state in the targetted VSM.
+            </summary>
+        </member>
+        <member name="P:Expression.Samples.Interactivity.GoToStateBase.TargetElement">
+            <summary>
+            Get the control which this action should be changing the state of.
+            The control is always the parent in the logical tree which contains a VSM. If this
+            action is attached to a button in UserControl.xaml, then the state group should be the
+            UserControl's state group- not the Button's.
+            </summary>
+        </member>
+        <member name="P:Expression.Samples.Interactivity.GoToStateBase.Loop">
+            <summary>
+            True if this should loop around when it gets to the end.
+            </summary>
+        </member>
+        <member name="T:Expression.Samples.Interactivity.GoToNextState">
+            <summary>
+            Go to the next state in the targetted VSM.
+            </summary>
+        </member>
+        <member name="M:Expression.Samples.Interactivity.GoToNextState.Invoke(System.Object)">
+            <summary>
+            Does the state transition.
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:Expression.Samples.Interactivity.GoToPreviousState">
+            <summary>
+            Go to the previous state in the targetted VSM.
+            </summary>
+        </member>
+        <member name="M:Expression.Samples.Interactivity.GoToPreviousState.Invoke(System.Object)">
+            <summary>
+            Does the state transition.
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Centigrade.Kit.StateMachine.StateTransitionCommandAction" -->
+        <member name="P:Centigrade.Kit.StateMachine.StateTransitionCommandAction.Command">
+            <summary>
+            Gets or sets the <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> to be executed if CanExecute returns true.
+            Otherwise if more trigger actions exist for this instance's AssociatedObject the next trigger action may trigger.
+            </summary>
+            <value>
+            The <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> to be executed.
+            </value>
+        </member>
+        <member name="P:Centigrade.Kit.StateMachine.StateTransitionCommandAction.CommandParameter">
+            <summary>
+            Gets or sets the command parameter of the specified <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/>.
+            </summary>
+            <value>
+            The command parameter of the specified <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/>.
+            </value>
+        </member>
+        <member name="P:Centigrade.Kit.StateMachine.StateTransitionCommandAction.IsTogglingEnablement">
+            <summary>
+            Gets or sets a value indicating whether the AssociatedObject is enabled.
+            </summary>
+            <value>
+            <c>true</c> if the trigger action toggles the enablement of the AssociatedObject; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.DelegateCommand`1">
+            <summary>
+            An <see cref="!:ICommand"/> whose delegates can be attached for <see cref="M:Centigrade.Kit.StateMachine.DelegateCommand`1.Execute(`0)"/> and <see cref="M:Centigrade.Kit.StateMachine.DelegateCommand`1.CanExecute(`0)"/>.
+            It also implements the <see cref="!:IActiveAware"/> interface, which is useful when registering this command in a <see cref="!:CompositeCommand"/> that monitors command's activity.
+            </summary>
+            <typeparam name="T">Parameter type.</typeparam>
+            <remarks>
+            The constructor deliberately prevent the use of value types.
+            Because ICommand takes an object, having a value type for T would cause unexpected behavior when CanExecute(null) is called during XAML initialization for command bindings.
+            Using default(T) was considered and rejected as a solution because the implementor would not be able to distinguish between a valid and defaulted values.
+            <para/>
+            Instead, callers should support a value type by using a nullable value type and checking the HasValue property before using the Value property.
+            <example>
+                <code>
+            public MyClass()
+            {
+                this.submitCommand = new DelegateCommand&lt;int?&gt;(this.Submit, this.CanSubmit);
+            }
+            
+            private bool CanSubmit(int? customerId)
+            {
+                return (customerId.HasValue &amp;&amp; customers.Contains(customerId.Value));
+            }
+                </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.DelegateCommandBase">
+            <summary>
+            An <see cref="T:System.Windows.Input.ICommand"/> whose delegates can be attached for <see cref="M:Centigrade.Kit.StateMachine.DelegateCommandBase.Execute(System.Object)"/> and <see cref="M:Centigrade.Kit.StateMachine.DelegateCommandBase.CanExecute(System.Object)"/>.
+            It also implements the <see cref="!:IActiveAware"/> interface, which is
+            useful when registering this command in a <see cref="!:CompositeCommand"/>
+            that monitors command's activity.
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommandBase.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean})">
+            <summary>
+            Createse a new instance of a <see cref="T:Centigrade.Kit.StateMachine.DelegateCommandBase"/>, specifying both the execute action and the can execute function.
+            </summary>
+            <param name="executeMethod">The <see cref="T:System.Action"/> to execute when <see cref="M:System.Windows.Input.ICommand.Execute(System.Object)"/> is invoked.</param>
+            <param name="canExecuteMethod">The <see cref="T:System.Func`2"/> to invoked when <see cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)"/> is invoked.</param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommandBase.OnCanExecuteChanged">
+            <summary>
+            Raises <see cref="E:System.Windows.Input.ICommand.CanExecuteChanged"/> on the UI thread so every 
+            command invoker can requery <see cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)"/> to check if the
+            <see cref="!:CompositeCommand"/> can execute.
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommandBase.RaiseCanExecuteChanged">
+            <summary>
+            Raises <see cref="E:Centigrade.Kit.StateMachine.DelegateCommandBase.CanExecuteChanged"/> on the UI thread so every command invoker
+            can requery to check if the command can execute.
+            <remarks>Note that this will trigger the execution of <see cref="M:Centigrade.Kit.StateMachine.DelegateCommandBase.CanExecute(System.Object)"/> once for each invoker.</remarks>
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommandBase.OnIsActiveChanged">
+            <summary>
+            This raises the <see cref="E:Centigrade.Kit.StateMachine.DelegateCommandBase.IsActiveChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommandBase.Execute(System.Object)">
+            <summary>
+            Executes the command with the provided parameter by invoking the <see cref="T:System.Action`1"/> supplied during construction.
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommandBase.CanExecute(System.Object)">
+            <summary>
+            Determines if the command can execute with the provided parameter by invoing the <see cref="T:System.Func`2"/> supplied during construction.
+            </summary>
+            <param name="parameter">The parameter to use when determining if this command can execute.</param>
+            <returns>Returns <see langword="true"/> if the command can execute.  <see langword="False"/> otherwise.</returns>
+        </member>
+        <member name="P:Centigrade.Kit.StateMachine.DelegateCommandBase.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the object is active.
+            </summary>
+            <value><see langword="true" /> if the object is active; otherwise <see langword="false" />.</value>
+        </member>
+        <member name="E:Centigrade.Kit.StateMachine.DelegateCommandBase.IsActiveChanged">
+            <summary>
+            Fired if the <see cref="P:Centigrade.Kit.StateMachine.DelegateCommandBase.IsActive"/> property changes.
+            </summary>
+        </member>
+        <member name="E:Centigrade.Kit.StateMachine.DelegateCommandBase.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute. You must keep a hard
+            reference to the handler to avoid garbage collection and unexpected results. See remarks for more information.
+            </summary>
+            <remarks>
+            When subscribing to the <see cref="E:System.Windows.Input.ICommand.CanExecuteChanged"/> event using 
+            code (not when binding using XAML) will need to keep a hard reference to the event handler. This is to prevent 
+            garbage collection of the event handler because the command implements the Weak Event pattern so it does not have
+            a hard reference to this handler. An example implementation can be seen in the CompositeCommand and CommandBehaviorBase
+            classes. In most scenarios, there is no reason to sign up to the CanExecuteChanged event directly, but if you do, you
+            are responsible for maintaining the reference.
+            </remarks>
+            <example>
+            The following code holds a reference to the event handler. The myEventHandlerReference value should be stored
+            in an instance member to avoid it from being garbage collected.
+            <code>
+            EventHandler myEventHandlerReference = new EventHandler(this.OnCanExecuteChanged);
+            command.CanExecuteChanged += myEventHandlerReference;
+            </code>
+            </example>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand`1.#ctor(System.Action{`0})">
+            <summary>
+            Initializes a new instance of <see cref="T:Centigrade.Kit.StateMachine.DelegateCommand`1"/>.
+            </summary>
+            <param name="executeMethod">Delegate to execute when Execute is called on the command.  This can be null to just hook up a CanExecute delegate.</param>
+            <remarks><seealso cref="M:Centigrade.Kit.StateMachine.DelegateCommand`1.CanExecute(`0)"/> will always return true.</remarks>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand`1.#ctor(System.Action{`0},System.Func{`0,System.Boolean})">
+            <summary>
+            Initializes a new instance of <see cref="T:Centigrade.Kit.StateMachine.DelegateCommand`1"/>.
+            </summary>
+            <param name="executeMethod">Delegate to execute when Execute is called on the command.  This can be null to just hook up a CanExecute delegate.</param>
+            <param name="canExecuteMethod">Delegate to execute when CanExecute is called on the command.  This can be null.</param>
+            <exception cref="T:System.ArgumentNullException">When both <paramref name="executeMethod"/> and <paramref name="canExecuteMethod"/> ar <see langword="null"/>.</exception>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand`1.CanExecute(`0)">
+            <summary>
+            Determines if the command can execute by invoked the <see cref="T:System.Func`2"/> provided during construction.
+            </summary>
+            <param name="parameter">Data used by the command to determine if it can execute.</param>
+            <returns>
+            <see langword="true"/> if this command can be executed; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand`1.Execute(`0)">
+            <summary>
+            Executes the command and invokes the <see cref="T:System.Action`1"/> provided during construction.
+            </summary>
+            <param name="parameter">Data used by the command.</param>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.DelegateCommand">
+            <summary>
+            An <see cref="!:ICommand"/> whose delegates do not take any parameters for <see cref="M:Centigrade.Kit.StateMachine.DelegateCommand.Execute"/> and <see cref="M:Centigrade.Kit.StateMachine.DelegateCommand.CanExecute"/>.
+            </summary>
+            <seealso cref="T:Centigrade.Kit.StateMachine.DelegateCommandBase"/>
+            <seealso cref="T:Centigrade.Kit.StateMachine.DelegateCommand`1"/>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand.#ctor(System.Action)">
+            <summary>
+            Creates a new instance of <see cref="T:Centigrade.Kit.StateMachine.DelegateCommand"/> with the <see cref="T:System.Action"/> to invoke on execution.
+            </summary>
+            <param name="executeMethod">The <see cref="T:System.Action"/> to invoke when <see cref="!:ICommand.Execute"/> is called.</param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+            Creates a new instance of <see cref="T:Centigrade.Kit.StateMachine.DelegateCommand"/> with the <see cref="T:System.Action"/> to invoke on execution
+            and a <see langword="Func"/> to query for determining if the command can execute.
+            </summary>
+            <param name="executeMethod">The <see cref="T:System.Action"/> to invoke when <see cref="!:ICommand.Execute"/> is called.</param>
+            <param name="canExecuteMethod">The <see cref="T:System.Func`1"/> to invoke when <see cref="!:ICommand.CanExecute"/> is called</param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand.Execute">
+            <summary>
+             Executes the command.
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.DelegateCommand.CanExecute">
+            <summary>
+            Determines if the command can be executed.
+            </summary>
+            <returns>Returns <see langword="true"/> if the command can execute,otherwise returns <see langword="false"/>.</returns>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.WeakEventHandlerManager">
+            <summary>
+            Handles management and dispatching of EventHandlers in a weak way.
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.WeakEventHandlerManager.CallWeakReferenceHandlers(System.Object,System.Collections.Generic.List{System.WeakReference})">
+            <summary>
+             Invokes the handlers 
+            </summary>
+            <param name="sender"></param>
+            <param name="handlers"></param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.WeakEventHandlerManager.AddWeakReferenceHandler(System.Collections.Generic.List{System.WeakReference}@,System.EventHandler,System.Int32)">
+            <summary>
+             Adds a handler to the supplied list in a weak way.
+            </summary>
+            <param name="handlers">Existing handler list.  It will be created if null.</param>
+            <param name="handler">Handler to add.</param>
+            <param name="defaultListSize">Default list size.</param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.WeakEventHandlerManager.RemoveWeakReferenceHandler(System.Collections.Generic.List{System.WeakReference},System.EventHandler)">
+            <summary>
+             Removes an event handler from the reference list.
+            </summary>
+            <param name="handlers">Handler list to remove reference from.</param>
+            <param name="handler">Handler to remove.</param>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.WeakEventHandlerManager.DispatcherProxy">
+            <summary>
+            Hides the dispatcher mis-match between Silverlight and .Net, largely so code reads a bit easier
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMapper.OnInitialized(System.Object,System.EventArgs)">
+            <summary>
+            Called when the StateMapper Control is initialized.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="eventArgs">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.StateGroup`1">
+            <summary>
+            A state group is a composite state, consisting of serveral sub-states. The state group itself is also a state machine, managing the sub-states.
+            </summary>
+            <typeparam name="TInitialState">The type of the initial state of the state group.</typeparam>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.StateMachine">
+            <summary>
+            The state machine provides a concept to organize the flow of an application or custom control using the state machine paradigm.
+            A state machine consists of a set of <see cref="T:Centigrade.Kit.StateMachine.State">states</see> and (conditional) <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand">transitions</see> between states. 
+            The state machine is always in exactly one of a number of possible states. 
+            </summary>
+            <remarks> 
+            Since most applications are event driven, they continuously wait for the occurrence of external or internal events 
+            such as user interaction, timer events, or the change of data. After recognizing an event the application reacts, depending on the internal state of the application 
+            and the type of event. Then the application waits for the next event.
+            Using a state machine can drastically cut down the number of execution paths through the code, simplify the testing of conditions and the switching between states.
+            It can help to prevent errors and increase the maintainability and extensibility of the source code.
+            The different states of the StateMachine are mapped directly to visual states of the view using the <see cref="T:Centigrade.Kit.StateMachine.StateMapper"/>.  
+            </remarks>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> class.
+            </summary>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GetState``1">
+            <summary>
+            Gets the <see cref="T:Centigrade.Kit.StateMachine.State"/> of the specified type.
+            </summary>
+            <typeparam name="T">The type of the state.</typeparam>
+            <returns>The state of the specified type.</returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GetStateTransitionCommand``3(System.Action{``2})">
+            <summary>
+            Gets the unconditional <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> that is executed when transitioning from <see cref="!:TState"/> to <see cref="!:TNextState"/>.
+            Whenever the command is executed action is performed.
+            </summary>
+            <remarks>
+            The state machine manages the commands, holding instances of commands with the same parameters and returns them when requested.
+            </remarks>
+            <typeparam name="TState">The state where the transition starts.</typeparam>
+            <typeparam name="TNextState">The state where the transition ends.</typeparam>
+            <typeparam name="TActionArgument">The type of the <paramref name="action"/>.</typeparam>
+            <param name="action">The action executed during the transition to the next state.</param>
+            <returns>The instance <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> with the specified arguments.</returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GetStateTransitionCommand``3(System.Action{``2},System.Func{``2,System.Boolean})">
+            <summary>
+            Gets the conditional <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> that is executed when transitioning from <see cref="!:TState"/> to <see cref="!:TNextState"/>
+            in case <paramref name="canExecuteFunction"/> returns true.
+            Whenever the command is executed <paramref name="action"/> is performed.
+            </summary>
+            <typeparam name="TState">The state where the transition starts.</typeparam>
+            <typeparam name="TNextState">The state where the transition ends.</typeparam>
+            <typeparam name="TActionArgument">The type of the <paramref name="action"/>.</typeparam>
+            <param name="action">The action executed during the transition to the next state.</param>
+            <param name="canExecuteFunction">The condition of the transition <seealso cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)"/>.</param>
+            <returns>The instance <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> with the specified arguments.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Centigrade.Kit.StateMachine.StateMachine.ChooseStateTransitionCommand(Centigrade.Kit.StateMachine.IStateTransitionCommand,Centigrade.Kit.StateMachine.IStateTransitionCommand)" -->
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.ChooseStateTransitionCommand(Centigrade.Kit.StateMachine.IStateTransitionCommand,Centigrade.Kit.StateMachine.IStateTransitionCommand,Centigrade.Kit.StateMachine.IStateTransitionCommand)">
+            <summary>
+            Chooses one of the specified <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand">StateTransitionCommands</see> based on the conditions and the order in which the commands are specified.
+            </summary>
+            <param name="stc1">The first <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <param name="stc2">The second <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <param name="stc3">The third <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <returns>the chosen <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/>.</returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.ChooseStateTransitionCommand(Centigrade.Kit.StateMachine.IStateTransitionCommand,Centigrade.Kit.StateMachine.IStateTransitionCommand,Centigrade.Kit.StateMachine.IStateTransitionCommand,Centigrade.Kit.StateMachine.IStateTransitionCommand)">
+            <summary>
+            Chooses one of the specified <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand">StateTransitionCommands</see> based on the conditions and the order in which the commands are specified.
+            </summary>
+            <param name="stc1">The first <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <param name="stc2">The second <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <param name="stc3">The third <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <param name="stc4">The fourth <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/> option.</param>
+            <returns>the chosen <see cref="T:Centigrade.Kit.StateMachine.IStateTransitionCommand"/>.</returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.IsInState``1">
+            <summary>
+            Determines whether the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> is in the specified state.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:Centigrade.Kit.StateMachine.State"/>.</typeparam>
+            <returns>
+              <c>true</c> if the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> is in the specified state; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.WasInState``1">
+            <summary>
+            Determines whether the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> was in the specified state right before the current state.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:Centigrade.Kit.StateMachine.State"/>.</typeparam>
+            <returns>
+               <c>true</c> if the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> was in the specified state right before the current state; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GoToState``1">
+            <summary>
+            Sets the current state of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> to the specified state.
+            </summary>
+            <typeparam name="T">The type of the state.</typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Centigrade.Kit.StateMachine.StateMachine.GoToState``1(System.Object)" -->
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GoToState``2(System.Action{``1},``1)">
+            <summary>
+            Sets the current state of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> to the specified state, executing an action.
+            The specified <paramref name="parameter"/> can be accessed in the action.
+            </summary>
+            <typeparam name="T">The type of the state.</typeparam>
+            <typeparam name="TActionArgument">The type of the <paramref name="action"/>.</typeparam>
+            <param name="action">The action executed during the transition to the next state.</param>
+            <param name="parameter">The action parameter.</param>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GoToState(Centigrade.Kit.StateMachine.IState)">
+            <summary>
+            Sets the current state of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> to the specified state instance.
+            </summary>
+            <param name="state">The instance of the <see cref="T:Centigrade.Kit.StateMachine.IState">state</see>.</param>
+            <remarks>
+            This method is used, to go to a specific instance of an state. E.g. if a state is stored and it's necessary to go back to this specific state later.
+            </remarks>
+        </member>
+        <member name="M:Centigrade.Kit.StateMachine.StateMachine.GoToState(Centigrade.Kit.StateMachine.IState,System.Action{System.Object})">
+            <summary>
+            Sets the current state of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/> to the specified state instance.
+            </summary>
+            <remarks>
+            This method is used, to go to a specific instance of an state. E.g. if a state is stored and it's necessary to go back to this specific state later.
+            </remarks>
+            <param name="state">The instance of the <see cref="T:Centigrade.Kit.StateMachine.IState">state</see>.</param>
+            <param name="action">The action executed during the transition to the next state.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Centigrade.Kit.StateMachine.StateMachine.OnStateChanged(System.Object)" -->
+        <member name="P:Centigrade.Kit.StateMachine.StateMachine.CurrentState">
+            <summary>
+            Gets the current state of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/>.
+            </summary>
+            <value>
+            The current state of the <see cref="T:Centigrade.Kit.StateMachine.StateMachine"/>.
+            </value>
+        </member>
+        <member name="P:Centigrade.Kit.StateMachine.StateMachine.IsStateTransitioning">
+            <summary>
+            Gets a value indicating whether a state transition is executed.
+            </summary>
+            <value>
+            <c>true</c> while the state machine is transitioning from one state to another; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Centigrade.Kit.StateMachine.StateMachine.States">
+            <summary>
+            Gets the list of <see cref="T:Centigrade.Kit.StateMachine.IState">states</see>.
+            </summary>
+            <value>
+            The list of <see cref="T:Centigrade.Kit.StateMachine.IState">states</see>.
+            </value>
+        </member>
+        <member name="E:Centigrade.Kit.StateMachine.StateMachine.StateTransitioning">
+            <summary>
+            Occurs right before the state transition starts.
+            </summary>
+        </member>
+        <member name="E:Centigrade.Kit.StateMachine.StateMachine.StateChanged">
+            <summary>
+            Occurs when the state transition is finished and the current state changed.
+            </summary>
+        </member>
+        <member name="P:Centigrade.Kit.StateMachine.StateGroup`1.IsActive">
+            <summary>
+            Gets a value indicating whether this state group is active. A state group is active, when the state group is the current state of the parent state machine.
+            </summary>
+            <value>
+            <c>true</c> if this state group is active; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Centigrade.Kit.StateMachine.BaseState">
+            <summary>
+            The BaseState is the entry point of a state machine. It's the source of the initial transition to the default state.
+            </summary>
+            <remarks>
+            After the initialization the state machine is in the base state. To kick off the state machine a transition to a customly defined initial state should be triggered, 
+            e.g. by the Loaded event of the associated view.
+            </remarks>
+        </member>
+    </members>
+</doc>

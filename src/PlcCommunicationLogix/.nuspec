@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ACS.Common.PlcCommunicationLogix</id>
+    <version>1.0.1.0</version>
+    <authors>Cimpress</authors>
+    <description>PlcCommunicationLogix package for ACS platforms</description>
+    <projectUrl>https://github.com/sizilium/Mosaic</projectUrl>
+    <tags>ACS, Plc, Rockwell, Logix</tags>
+    <dependencies>
+      <dependency id="ACS.Common.PlcCommunication" version="2.0.1.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcCommunicationLogix.dll" target="lib\net45"/>
+    <file src="bin\$configuration$\VP.FF.PT.Common.PlcCommunicationLogix.pdb" target="lib\net45"/>
+  </files>
+</package>

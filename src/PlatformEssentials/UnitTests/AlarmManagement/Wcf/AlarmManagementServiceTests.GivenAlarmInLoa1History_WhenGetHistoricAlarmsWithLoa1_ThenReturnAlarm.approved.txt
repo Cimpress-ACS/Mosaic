@@ -1,0 +1,7 @@
+﻿{
+  "Id": 1,
+  "Type": 1,
+  "Message": "Alert Alert",
+  "Timestamp": "2014-05-09T00:00:00",
+  "Source": "LOA_1"
+}
